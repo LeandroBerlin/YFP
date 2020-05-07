@@ -88,6 +88,7 @@
                     <img src="img/logo.webp">
                     <p>Your party Your music</p>
                 </div>
+
             </div>
         </div>
     </body>
