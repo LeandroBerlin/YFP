@@ -65939,27 +65939,28 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Todo(_ref) {
-  var todo = _ref.todo,
+function Track(_ref) {
+  var track = _ref.track,
       index = _ref.index,
-      removeTodo = _ref.removeTodo;
+      removeTrack = _ref.removeTrack;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "todo",
-    style: {
-      textDecoration: todo.isCompleted ? "line-through" : ""
-    }
-  }, todo.text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    className: "track"
+  }, track.text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
+    className: "far fa-play-circle"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
+    className: "far fa-edit"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     className: "btn btn-danger  btn-xs",
     onClick: function onClick() {
-      return removeTodo(index);
+      return removeTrack(index);
     }
   }, "x")));
 }
 
-function TodoForm(_ref2) {
-  var addTodo = _ref2.addTodo;
+function TrackFrom(_ref2) {
+  var addTrack = _ref2.addTrack;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],
       setValue = _useState2[1];
@@ -65967,7 +65968,7 @@ function TodoForm(_ref2) {
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     if (!value) return;
-    addTodo(value);
+    addTrack(value);
     setValue("");
   };
 
@@ -65975,8 +65976,8 @@ function TodoForm(_ref2) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "text",
-    className: "input track mt-2",
-    value: value,
+    className: "input search mt-2",
+    value: value ? value : '',
     placeholder: "Search Track",
     onChange: function onChange(e) {
       return setValue(e.target.value);
@@ -65993,21 +65994,21 @@ var Main = function Main() {
     text: "Nick Cave and the Bad Seeds - Into my arms"
   }]),
       _useState4 = _slicedToArray(_useState3, 2),
-      todos = _useState4[0],
-      setTodos = _useState4[1];
+      tracks = _useState4[0],
+      setTrack = _useState4[1];
 
-  var addTodo = function addTodo(text) {
-    var newTodos = [].concat(_toConsumableArray(todos), [{
+  var addTrack = function addTrack(text) {
+    var newTracks = [].concat(_toConsumableArray(tracks), [{
       text: text
     }]);
-    setTodos(newTodos);
+    setTrack(newTracks);
   };
 
-  var removeTodo = function removeTodo(index) {
-    var newTodos = _toConsumableArray(todos);
+  var removeTrack = function removeTrack(index) {
+    var newTracks = _toConsumableArray(tracks);
 
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    newTracks.splice(index, 1);
+    setTrack(newTracks);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -66016,21 +66017,21 @@ var Main = function Main() {
     className: "card "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-header text-white bg-dark"
-  }, "Playlist React Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, "Your Playlist"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-body playlist-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "app"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "todo-list"
-  }, todos.map(function (todo, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Todo, {
+    className: "track-list"
+  }, tracks.map(function (track, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Track, {
       key: index,
       index: index,
-      todo: todo,
-      removeTodo: removeTodo
+      track: track,
+      removeTrack: removeTrack
     });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TodoForm, {
-    addTodo: addTodo
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TrackFrom, {
+    addTrack: addTrack
   }))))));
 };
 
