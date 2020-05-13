@@ -43,6 +43,8 @@ function TrackFrom({ addTrack }) {
 
 const Main = () => {
 
+    console.log("Yo")
+
     const [tracks, setTrack] = useState([
         {
             text: "Cure - The Funeral Party"

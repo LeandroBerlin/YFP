@@ -65986,6 +65986,8 @@ function TrackFrom(_ref2) {
 }
 
 var Main = function Main() {
+  console.log("Yo");
+
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([{
     text: "Cure - The Funeral Party"
   }, {
